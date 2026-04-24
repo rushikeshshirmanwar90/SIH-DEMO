@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,45 +7,24 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link"
-import { ArrowRight, GraduationCap } from "lucide-react"
+import { ArrowRight, Building2 } from "lucide-react"
 
-export default function StudentLoginPage() {
+export default function CompanyLoginPage() {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    // Simulate API call
     setTimeout(() => {
-      // Check if student has completed assessment and goals
-      const hasCompletedAssessment = localStorage.getItem('studentIQ')
-      const hasSetGoals = localStorage.getItem('studentGoals')
-      
-      if (hasCompletedAssessment && hasSetGoals) {
-        // If both completed, go to dashboard
-        window.location.href = "/student/dashboard"
-      } else if (hasCompletedAssessment && !hasSetGoals) {
-        // If assessment done but no goals, go to goals
-        window.location.href = "/student/goals"
-      } else {
-        // If no assessment, start with assessment
-        window.location.href = "/student/assessment"
-      }
+      window.location.href = "/companies/dashboard"
     }, 1000)
   }
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    // Simulate API call - New users always go to assessment first
     setTimeout(() => {
-      // Clear any previous assessment data for new signup
-      localStorage.removeItem('studentIQ')
-      localStorage.removeItem('studentProficiency')
-      localStorage.removeItem('assessmentResults')
-      
-      // Redirect to assessment for new users
-      window.location.href = "/student/assessment"
+      window.location.href = "/companies/dashboard"
     }, 1000)
   }
 
@@ -55,8 +32,8 @@ export default function StudentLoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
         <div className="flex items-center justify-center gap-2 mb-8">
-          <GraduationCap className="h-8 w-8 text-primary" />
-          <h1 className="text-2xl font-bold text-foreground">JEMS Student Portal</h1>
+          <Building2 className="h-8 w-8 text-primary" />
+          <h1 className="text-2xl font-bold text-foreground">JEMS Companies</h1>
         </div>
 
         <Tabs defaultValue="login" className="w-full">
@@ -69,13 +46,13 @@ export default function StudentLoginPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Welcome back</CardTitle>
-                <CardDescription>Enter your credentials to access your learning journey</CardDescription>
+                <CardDescription>Access your company dashboard</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleLogin} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="student@example.com" required />
+                    <Label htmlFor="email">Company Email</Label>
+                    <Input id="email" type="email" placeholder="hr@company.com" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="password">Password</Label>
@@ -93,18 +70,22 @@ export default function StudentLoginPage() {
           <TabsContent value="signup">
             <Card>
               <CardHeader>
-                <CardTitle>Create your account</CardTitle>
-                <CardDescription>Start your personalized learning journey today</CardDescription>
+                <CardTitle>Register your company</CardTitle>
+                <CardDescription>Start hiring top talent today</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSignup} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" type="text" placeholder="John Doe" required />
+                    <Label htmlFor="company-name">Company Name</Label>
+                    <Input id="company-name" type="text" placeholder="Acme Corp" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
-                    <Input id="signup-email" type="email" placeholder="student@example.com" required />
+                    <Label htmlFor="signup-email">Company Email</Label>
+                    <Input id="signup-email" type="email" placeholder="hr@company.com" required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="website">Website</Label>
+                    <Input id="website" type="url" placeholder="https://company.com" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="signup-password">Password</Label>
@@ -121,8 +102,8 @@ export default function StudentLoginPage() {
         </Tabs>
 
         <div className="mt-6 text-center">
-          <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
-            Back to home
+          <Link href="/companies" className="text-sm text-muted-foreground hover:text-foreground">
+            Back to companies page
           </Link>
         </div>
       </div>

@@ -11,33 +11,33 @@ export function FeaturesSection() {
   const features = [
     {
       icon: Bot,
-      title: "Multi-Agent AI System",
-      description: "Multiple specialized AI agents work together to create optimal learning paths and match candidates",
+      title: "Smart Matching System",
+      description: "AI-powered matching based on skills, projects, and experience - not just CGPA",
     },
     {
       icon: BookOpen,
-      title: "Curated Resources",
-      description: "Access to high-quality learning materials, tutorials, and projects tailored to your roadmap",
+      title: "College-Verified Profiles",
+      description: "Trusted ecosystem with verified students and companies - no fake profiles",
     },
     {
       icon: LineChart,
-      title: "Progress Tracking",
-      description: "Real-time monitoring of your learning journey with detailed analytics and insights",
+      title: "Real-Time Tracking",
+      description: "Track applications from submission to selection with instant notifications",
     },
     {
       icon: MessageSquare,
-      title: "Mentorship & Community",
-      description: "Connect with mentors and peers in your field for guidance and collaboration",
+      title: "Direct Communication",
+      description: "Companies and students can connect directly for interviews and discussions",
     },
     {
       icon: Award,
-      title: "Skill Certification",
-      description: "Earn verified certificates as you complete milestones in your learning path",
+      title: "Skill-Based Hiring",
+      description: "Focus on actual skills and projects rather than just academic performance",
     },
     {
       icon: Zap,
-      title: "Instant Feedback",
-      description: "Get immediate AI-powered feedback on your projects and skill assessments",
+      title: "Automated Workflows",
+      description: "Streamlined job posting, application, and hiring process for efficiency",
     },
   ]
 

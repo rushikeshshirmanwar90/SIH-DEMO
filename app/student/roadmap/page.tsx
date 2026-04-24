@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
+import Link from "next/link"
 import {
   BookOpen,
   Clock,
@@ -271,48 +272,66 @@ export default function RoadmapPage() {
 
   if (isGenerating) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-6">
-        <Card className="max-w-2xl w-full">
-          <CardHeader className="text-center">
-            <div className="mx-auto mb-6 p-4 bg-primary/10 rounded-full w-fit animate-pulse">
-              <Sparkles className="h-12 w-12 text-primary" />
+      <div className="min-h-screen bg-background">
+        {/* Navigation Header */}
+        <header className="border-b bg-background/95 backdrop-blur">
+          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold">Generating Roadmap</span>
             </div>
-            <CardTitle className="text-3xl mb-2">Generating Your Personalized Roadmap</CardTitle>
-            <CardDescription className="text-base">
-              Our AI is analyzing your profile and creating a customized learning path tailored to your goals...
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-3">
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Progress</span>
-                <span className="font-medium text-primary">{generationProgress}%</span>
-              </div>
-              <Progress value={generationProgress} className="h-3" />
-            </div>
+            <Link href="/student/dashboard">
+              <Button variant="ghost" size="sm">
+                <TrendingUp className="h-4 w-4 mr-2" />
+                Dashboard
+              </Button>
+            </Link>
+          </div>
+        </header>
 
-            <div className="grid gap-3">
-              {[
-                { label: "Analyzing your skill level", done: generationProgress > 20 },
-                { label: "Identifying knowledge gaps", done: generationProgress > 40 },
-                { label: "Curating learning resources", done: generationProgress > 60 },
-                { label: "Creating milestone timeline", done: generationProgress > 80 },
-                { label: "Finalizing your roadmap", done: generationProgress > 95 },
-              ].map((step, index) => (
-                <div key={index} className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
-                  {step.done ? (
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                  ) : (
-                    <Circle className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-                  )}
-                  <span className={`text-sm ${step.done ? "text-foreground" : "text-muted-foreground"}`}>
-                    {step.label}
-                  </span>
+        <div className="flex items-center justify-center p-6 min-h-[calc(100vh-80px)]">
+          <Card className="max-w-2xl w-full">
+            <CardHeader className="text-center">
+              <div className="mx-auto mb-6 p-4 bg-primary/10 rounded-full w-fit animate-pulse">
+                <Sparkles className="h-12 w-12 text-primary" />
+              </div>
+              <CardTitle className="text-3xl mb-2">Generating Your Personalized Roadmap</CardTitle>
+              <CardDescription className="text-base">
+                Our AI is analyzing your profile and creating a customized learning path tailored to your goals...
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Progress</span>
+                  <span className="font-medium text-primary">{generationProgress}%</span>
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+                <Progress value={generationProgress} className="h-3" />
+              </div>
+
+              <div className="grid gap-3">
+                {[
+                  { label: "Analyzing your skill level", done: generationProgress > 20 },
+                  { label: "Identifying knowledge gaps", done: generationProgress > 40 },
+                  { label: "Curating learning resources", done: generationProgress > 60 },
+                  { label: "Creating milestone timeline", done: generationProgress > 80 },
+                  { label: "Finalizing your roadmap", done: generationProgress > 95 },
+                ].map((step, index) => (
+                  <div key={index} className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
+                    {step.done ? (
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                    ) : (
+                      <Circle className="h-5 w-5 text-muted-foreground shrink-0" />
+                    )}
+                    <span className={`text-sm ${step.done ? "text-foreground" : "text-muted-foreground"}`}>
+                      {step.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     )
   }
@@ -347,6 +366,22 @@ export default function RoadmapPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Navigation Header */}
+      <header className="border-b bg-background/95 backdrop-blur sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Target className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold">Your Learning Roadmap</span>
+          </div>
+          <Link href="/student/dashboard">
+            <Button variant="outline" size="sm">
+              <TrendingUp className="h-4 w-4 mr-2" />
+              Go to Dashboard
+            </Button>
+          </Link>
+        </div>
+      </header>
+
       {/* Header Section */}
       <div className="border-b bg-card">
         <div className="max-w-7xl mx-auto p-6 py-8">

@@ -5,8 +5,8 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'JEMS',
-  description: 'Redefining Education Through Intelligence & Innovation'
+  title: 'JEMS - Job Matching & Employment System',
+  description: 'Connecting Students, Colleges & Companies through smart skill-based matching'
 }
 
 export default function RootLayout({

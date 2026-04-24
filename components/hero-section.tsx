@@ -29,8 +29,7 @@ export function HeroSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Bridge the gap between <span className="text-primary">learning</span> and{" "}
-            <span className="text-accent">earning</span>
+            Connecting <span className="text-primary">Students</span>, <span className="text-accent">Colleges</span> & <span className="text-primary">Companies</span>
           </h1>
 
           <p
@@ -38,8 +37,7 @@ export function HeroSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            AI-powered platform that creates personalized learning roadmaps for students and connects companies with
-            job-ready talent. Smart education for the digital age.
+            JEMS is your central bridge for job matching and employment. Smart skill-based matching, verified profiles, and real-time placement tracking - all in one platform.
           </p>
 
           <div
@@ -50,14 +48,16 @@ export function HeroSection() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-base px-8 hover:scale-105 transition-transform"
+              onClick={() => window.location.href = '/student'}
             >
-              Start Learning
+              For Students
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="text-base px-8 bg-transparent hover:scale-105 transition-transform"
+              onClick={() => window.location.href = '/companies'}
             >
               For Companies
             </Button>
